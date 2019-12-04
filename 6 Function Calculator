@@ -1,0 +1,106 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+ 
+double add();
+ 
+double subtract();
+ 
+double multiply();
+ 
+double divide();
+ 
+double power();
+ 
+int mod();
+ 
+int main(){
+cout << endl << "Choose a mode:" << endl
+<< "1 - Addition" << endl
+<< "2 - Subtraction"  << endl
+<< "3 - Multiplication" << endl
+<< "4 - Division" << endl
+<< "5 - Exponential" << endl
+<< "6 - Modulus" << endl
+<< "7 - Exit" << endl << endl;
+int choice, r, mod1, mod2;
+cin >> choice;
+switch (choice)
+{
+case 1:
+      cout << endl << add() << endl << endl;
+      break;
+case 2:
+      cout << endl << subtract() << endl << endl;
+      break;
+case 3:
+      cout << endl << multiply() << endl << endl;
+      break;
+case 4:
+  
+      cout << endl << divide() << endl << endl;
+      break;
+case 5:
+      cout << endl << power() << endl << endl;
+      break;
+case 6:
+  
+      cout << endl << mod() << endl << endl;
+      break;
+case 7:
+      cout << "---TERMINATED---";
+      return 0;
+default: cout << "Something went wrong! An invalid option, most likely." << endl << endl;
+      main();
+}
+main();
+}
+double add(){
+cout << endl << "--Addition--" << endl << "Enter 2 real numbers" << endl << endl;
+double n1, n2;
+cin >> n1 >> n2;
+cout << endl << "Result: ";
+return n1 + n2;
+}
+double subtract(){
+ 
+cout << endl << "--Subtraction--" << endl << "Enter 2 numbers" << endl << endl;
+double n1, n2;
+cin >> n1 >> n2;
+cout << endl << "Result: ";
+return n1 - n2;
+}
+double multiply(){
+ 
+cout << endl << "--Multiplication--" << endl << "Enter 2 numbers" << endl << endl;
+double n1, n2;
+cin >> n1 >> n2;
+cout << endl << "Result: ";
+return n1 * n2;
+}
+double divide(){
+ 
+cout << endl << "--Division--" << endl << "Enter 2 numbers" << endl << endl;
+double n1, n2;
+cin >> n1 >> n2;
+cout << endl << "Result: ";
+return n1 / n2;
+}
+double power(){
+ 
+cout << endl << "--Exponential--" << endl << "Enter 2 numbers" << endl << endl;
+double n1, n2;
+cin >> n1 >> n2;
+cout << endl << "Result: ";
+return pow(n1, n2);
+}
+ 
+int mod(){
+ 
+cout << endl << "--Modulus--" << endl << "Enter 2 integers" << endl <<    endl;
+int n1, n2;
+cin >> n1 >> n2;
+cout << endl << "Result: ";
+return n1 % n2;
+}
+
