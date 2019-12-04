@@ -1,0 +1,27 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+ 
+using namespace std;
+ 
+ 
+int main() {
+ 
+ int n, g;
+ srand (time(NULL));
+ 
+ n = rand() % 10;
+ 
+ cout << endl << "Choose a number between 1 and 10" << endl;
+ cin >> g;
+ cout << endl;
+ 
+ if (g == n){
+   cout << endl << "Congratulations! You chose correctly" << endl << "TERMINATED";
+   return 0;
+ 
+ }
+ else {
+   cout << "You chose incorrectly! Try again" << endl << endl;
+   main();
+ }
