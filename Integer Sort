@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+ 
+int main() {
+ cout << "Enter 3 Integers" << endl;
+ 
+ int x, y, z, temp;
+ cin >> x;
+ cin >> y;
+ cin >> z;
+ 
+ cout << "Your numbers are " << x << ", " << y << ", and " << z << endl << endl;
+ 
+ if (x > y)
+ {
+   temp = x;
+   x = y;
+   y = temp;
+ }
+ 
+ if (y > z)
+ {
+   temp = y;
+   y = z;
+   z = temp;
+ }
+  if (x > y)
+ {
+   temp = x;
+   x = y;
+   y = temp;
+ }
+ 
+ cout << "Your numbers (sorted L --> G) are " << x << ", " << y << ", and " << z << endl;
+ 
+}
+
