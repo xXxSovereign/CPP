@@ -1,4 +1,3 @@
- 
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -116,6 +115,11 @@ bool FinalFlag = false;
  
 character Player;
  
+weapon Drop1;
+weapon Drop2;
+weapon Drop3;
+weapon Drop4;
+
 Tier1 T1Monster;
 srand(time(NULL));
 int randnum = rand() % 3 + 1;
@@ -124,22 +128,44 @@ switch (randnum){
  
   case 1:
    T1Monster.name = "Slime";
+   T1Monster.health = 5;
    break;
  
   case 2:
    T1Monster.name = "Boar";
+   T1Monster.health = 7;
    break;
  
   case 3:
    T1Monster.name = "Bush";
+   T1Monster.health = 3;
    break;
 }
  
+srand(time(NULL));
+int randnum2 = rand() % 4 + 1;
+
+switch (randnum2){
+
+  case 1:
+  break;
+
+  case 2:
+  break;
+
+  case 3:
+  break;
+
+  case 4:
+  break;
+}
+
  cout << endl << "Welcome To Monster Fight! Choose a difficulty: " << endl << endl
  << "1 - Easy" << endl
  << "2 - Medium" << endl
  << "3 - Hard" << endl
  << "4 - Exit" << endl << endl;
+
  int diff;
  cin >> diff;
  switch (diff){
@@ -205,4 +231,3 @@ void gamewin(){
  restart();
  
 }
-
