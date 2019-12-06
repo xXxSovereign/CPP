@@ -18,6 +18,7 @@ void gamewin();
 struct weapon {
 
 	int damage;
+  string type;
 	string name;
 
 };
@@ -121,7 +122,7 @@ int main() {
 	bool FinalFlag = false;
 
 	weapon PWeapon = {
-		5,
+		2,
 		"Starting Sword" };
 
 	character Player;
@@ -157,21 +158,54 @@ int main() {
 //Tier 1 Loot:
 
 	srand(time(NULL));
-	int t1rd = rand() % 3 + 1;
+	int t1rd = rand() % 6 + 1;
 
 	switch (t1rd) {
 
 	case 1:
-		T1Drop = {};
+		T1Drop = {
+      6,
+      "Sword",
+      "Wooden Sword"
+    };
 		break;
 
 	case 2:
-		T1Drop = {};
+		T1Drop = {
+      4,
+      "Sword",
+      "Broken Wooden Sword"
+    };
 		break;
 
 	case 3:
-		T1Drop = {};
+		T1Drop = {
+      4,
+      "Sword",
+      "Broken Wooden Sword"
+    };
 		break;
+
+  case 4:
+  T1Drop = {
+    4,
+    "Sword",
+    "Broken Wooden Sword"
+  };
+
+  case 5:
+  T1Drop = {
+    6,
+    "Sword",
+    "Wooden Sword"
+  };
+
+  case 6:
+  T1Drop = {
+    5,
+    "Bow",
+    "Wooden Bow"
+  };
 
 	}
 
@@ -254,12 +288,11 @@ int main() {
 
 	case 1:
 		Player.health = 100;
-		cout << Player.health << endl;
+		cout << Player.health << endl << endl;
 
-		cout << T1M.name;
-		cout << T1M.T1Flag << endl;
-		T1M.T1DeathCheck();
-		cout << T1M.T1Flag;
+		cout << endl << T1Drop.name << endl << T1Drop.type << endl << T1Drop.damage; 
+
+    main();
 
 		break;
 
