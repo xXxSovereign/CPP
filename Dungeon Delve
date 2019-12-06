@@ -1,233 +1,315 @@
+//Michael Adolph, Dungeon Delve -- 22:31:05 -- 12/5/19
+
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
 #include <string>
 using namespace std;
- 
- 
+
+
 //Game Functions:
+
 void restart();
 void gameover();
-void gamewin();
-int attack();
- 
+void gamewin(); 
+
+//Weapon Structure:
+
 struct weapon {
 
-  int damage;
-  string name;
+	int damage;
+	string name;
 
 };
 
+//Enemy Classes
 
-//Monsters:
 class Tier1 {
 public:
 
- int health = 5;
- bool T1Flag = false;
- string name;
- 
- 
- int T1DeathCheck(){
-  return T1Flag = true;
- } 
+	int health = 5;
+	bool T1Flag = false;
+	string name;
 
- int T1Attack() {
-  srand(time(NULL));
-  return rand() % 3 + 1;
- }
+
+	int T1DeathCheck() {
+		return T1Flag = true;
+	}
+
+	int T1Attack() {
+		srand(time(NULL));
+		return rand() % 3 + 1;
+	}
 
 };
 
 class Tier2 {
 public:
- int health = 15;
- bool T2Flag = false;
- 
- int T2Attack() {
-  srand(time(NULL));
-  return rand() % 7 + 1;
- }
- 
- int T2DeathCheck(){
-  return T2Flag = true;
- } 
- 
+	int health = 15;
+	bool T2Flag = false;
+
+	int T2Attack() {
+		srand(time(NULL));
+		return rand() % 7 + 1;
+	}
+
+	int T2DeathCheck() {
+		return T2Flag = true;
+	}
+
 };
 
 class Tier3 {
 public:
- int health = 25;
- bool T3Flag = false;
-int T3Attack() {
- srand(time(NULL));
- return rand() % 12 + 1;
-}
- int T3DeathCheck(){
- return T3Flag = true;
-} 
+	int health = 25;
+	bool T3Flag = false;
+	int T3Attack() {
+		srand(time(NULL));
+		return rand() % 12 + 1;
+	}
+	int T3DeathCheck() {
+		return T3Flag = true;
+	}
 };
 
 class Tier4 {
 public:
- int health = 40;
- bool T4Flag = false;
-int T4Attack() {
- srand(time(NULL));
- return rand() % 16 + 1;
-}
-int T4DeathCheck(){
-   return T4Flag = true;
-} 
- 
+	int health = 40;
+	bool T4Flag = false;
+	int T4Attack() {
+		srand(time(NULL));
+		return rand() % 16 + 1;
+	}
+	int T4DeathCheck() {
+		return T4Flag = true;
+	}
+
 };
 
 class TierBoss {
 public:
- int health = 60;
- bool TBFlag = false;
-int TBAttack() {
- srand(time(NULL));
- return rand() % 20 + 1;
-}
-int TBDeathCheck(){
- return TBFlag = true;
-} 
+	int health = 60;
+	bool TBFlag = false;
+	int TBAttack() {
+		srand(time(NULL));
+		return rand() % 20 + 1;
+	}
+	int TBDeathCheck() {
+		return TBFlag = true;
+	}
 };
- 
+
+//Character Class:
+
 class character {
 public:
-int health;
-weapon inventory[5];
-const int heal = 30;
- int potcount;
- int potuse() {
-   if (potcount > 0 && health + 15 <= 100) {
-     potcount -= 1;
-     return heal;
- }
- else
-   return 0;
-};
+	int health;
+	weapon inventory[5];
+	const int heal = 30;
+	int potcount;
+	int potuse() {
+		if (potcount > 0 && health + 15 <= 100) {
+			potcount -= 1;
+			return heal;
+		}
+		else
+			return 0;
+	};
 };
 int main() {
-bool FinalFlag = false;
- 
-character Player;
- 
-weapon Drop1;
-weapon Drop2;
-weapon Drop3;
-weapon Drop4;
 
-Tier1 T1Monster;
-srand(time(NULL));
-int randnum = rand() % 3 + 1;
- 
-switch (randnum){
- 
-  case 1:
-   T1Monster.name = "Slime";
-   T1Monster.health = 5;
-   break;
- 
-  case 2:
-   T1Monster.name = "Boar";
-   T1Monster.health = 7;
-   break;
- 
-  case 3:
-   T1Monster.name = "Bush";
-   T1Monster.health = 3;
-   break;
+	bool FinalFlag = false;
+
+	weapon PWeapon = {
+		5,
+		"Starting Sword" };
+
+	character Player;
+
+	weapon T1Drop, T2Drop, T3Drop, T4Drop;
+
+	Tier1 T1M, T2M, T3M, T4M, TBM;
+
+
+	srand(time(NULL));
+	int randnum = rand() % 3 + 1;
+
+
+
+	switch (randnum) {
+
+	case 1:
+		T1M.name = "Slime";
+		T1M.health = 5;
+		break;
+
+	case 2:
+		T1M.name = "Boar";
+		T1M.health = 7;
+		break;
+
+	case 3:
+		T1M.name = "Bush";
+		T1M.health = 3;
+		break;
+	}
+
+//Tier 1 Loot:
+
+	srand(time(NULL));
+	int t1rd = rand() % 3 + 1;
+
+	switch (t1rd) {
+
+	case 1:
+		T1Drop = {};
+		break;
+
+	case 2:
+		T1Drop = {};
+		break;
+
+	case 3:
+		T1Drop = {};
+		break;
+
+	}
+
+//Tier 2 Loot:
+
+	srand(time(NULL));
+	int t2rd = rand() % 3 + 1;
+
+	switch (t2rd) {
+
+	case 1:
+		T2Drop = {};
+		break;
+
+	case 2:
+		T2Drop = {};
+		break;
+
+	case 3:
+		T2Drop = {};
+		break;
+
+	}
+
+//Tier 3 Loot:
+
+	srand(time(NULL));
+	int t3rd = rand() % 3 + 1;
+
+	switch (t3rd) {
+
+	case 1:
+		T3Drop = {};
+		break;
+
+	case 2:
+		T3Drop = {};
+		break;
+
+	case 3:
+		T3Drop = {};
+		break;
+		
+	}
+
+//Tier 4 Loot:
+
+	srand(time(NULL));
+	int t4rd = rand() % 3 + 1;
+	
+	switch (t4rd) {
+
+	case 1:
+		T4Drop = {};
+		break;
+									   
+	case 2:		
+		T4Drop = {};
+		break;
+									   
+	case 3:			
+		T4Drop = {};
+		break;						   
+									   
+	}
+
+//Menu:
+
+	cout << endl << "Welcome To Monster Fight! Choose a difficulty: " << endl << endl
+		<< "1 - Easy" << endl
+		<< "2 - Medium" << endl
+		<< "3 - Hard" << endl
+		<< "4 - Exit" << endl << endl;
+
+	int diff;
+	cin >> diff;
+	switch (diff) {
+
+//Different Difficulties & The Game:
+
+	case 1:
+		Player.health = 100;
+		cout << Player.health << endl;
+
+		cout << T1M.name;
+		cout << T1M.T1Flag << endl;
+		T1M.T1DeathCheck();
+		cout << T1M.T1Flag;
+
+		break;
+
+	case 2:
+		Player.health = 80;
+		cout << Player.health;
+		break;
+	case 3:
+		Player.health = 50;
+		cout << Player.health;
+		break;
+	case 4:
+		cout << "-----TERMINATED-----";
+		return 1;
+	default:
+		cout << "You entered an invalid option! Try again" << endl << endl;
+		main();
+	}
+	//cout << "Current health: " << Player.health << endl << endl;
+	//cout << "Using health potion! Gained " << Player.potuse() << endl << endl;
+	//Player.health += Player.potuse();
 }
- 
-srand(time(NULL));
-int randnum2 = rand() % 4 + 1;
 
-switch (randnum2){
+//Game Function Definitions
 
-  case 1:
-  break;
+void restart() {
+	cout << "Would you like to restart? 1 - Yes, 2 - No" << endl << endl;
 
-  case 2:
-  break;
+	int resvar;
+	cin >> resvar;
 
-  case 3:
-  break;
-
-  case 4:
-  break;
+	if (resvar == 1) {
+		main();
+	}
+	else {
+		cout << "-----TERMINATED-----";
+	}
 }
 
- cout << endl << "Welcome To Monster Fight! Choose a difficulty: " << endl << endl
- << "1 - Easy" << endl
- << "2 - Medium" << endl
- << "3 - Hard" << endl
- << "4 - Exit" << endl << endl;
+void gameover() {
 
- int diff;
- cin >> diff;
- switch (diff){
- 
-  case 1:
-   Player.health = 100;
-   cout << Player.health << endl;
- 
-   cout << T1Monster.name;
-    cout << T1Monster.T1Flag << endl;
-   T1Monster.T1DeathCheck();
-   cout << T1Monster.T1Flag;
- 
-   break;
-  //Random monster choice here, put them in a list, tier1 - tierb
-  /*while Tier1 flag is false, continue on game,
-  *when enemy dies, flag becomes true
-  */
-  case 2:
-   Player.health = 80;
-   cout << Player.health;
-   break;
-  case 3:
-   Player.health = 50;
-   cout << Player.health;
-   break;
-  case 4:
-   cout << "-----TERMINATED-----";
-   return 1;
-  default:
-   cout << "You entered an invalid option! Try again" << endl << endl;
-   main();
+	cout << "You died! Gameover!" << endl << endl;
+
+	restart();
 }
-//cout << "Current health: " << Player.health << endl << endl;
-//cout << "Using health potion! Gained " << Player.potuse() << endl << endl;
-//Player.health += Player.potuse();
-}
-void restart(){
- cout << "Would you like to restart? 1 - Yes, 2 - No" << endl << endl;
- 
- int resvar;
- cin >> resvar;
- 
- if (resvar == 1){
-   main();
- }
- else{
-   cout << "-----TERMINATED-----";
- }
-}
- 
-void gameover(){
- 
- cout << "You died! Gameover!" << endl << endl;
- 
- restart();
-}
- 
-void gamewin(){
- 
- cout << "You won! Congratulations!";
- 
- restart();
- 
+
+void gamewin() {
+
+	cout << "You won! Congratulations!";
+
+	restart();
+
 }
