@@ -1,24 +1,25 @@
-//Michael Adolph, Dungeon Delve -- 22:31:05 -- 12/5/19
+//Michael Adolph, Dungeon Delve -- 22:33:18 -- 12/8/19
 
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
 #include <string>
-using namespace std;
 
+using namespace std;
 
 //Game Functions:
 
 void restart();
 void gameover();
-void gamewin(); 
+void gamewin();
 
 //Weapon Structure:
 
 struct weapon {
 
 	int damage;
-  string type;
+	string tier;
+	string type;
 	string name;
 
 };
@@ -28,7 +29,7 @@ struct weapon {
 class Tier1 {
 public:
 
-	int health = 5;
+	int health;
 	bool T1Flag = false;
 	string name;
 
@@ -46,7 +47,7 @@ public:
 
 class Tier2 {
 public:
-	int health = 15;
+	int health ;
 	bool T2Flag = false;
 
 	int T2Attack() {
@@ -62,7 +63,7 @@ public:
 
 class Tier3 {
 public:
-	int health = 25;
+	int health;
 	bool T3Flag = false;
 	int T3Attack() {
 		srand(time(NULL));
@@ -75,7 +76,7 @@ public:
 
 class Tier4 {
 public:
-	int health = 40;
+	int health;
 	bool T4Flag = false;
 	int T4Attack() {
 		srand(time(NULL));
@@ -89,7 +90,7 @@ public:
 
 class TierBoss {
 public:
-	int health = 60;
+	int health;
 	bool TBFlag = false;
 	int TBAttack() {
 		srand(time(NULL));
@@ -105,7 +106,10 @@ public:
 class character {
 public:
 	int health;
-	weapon inventory[5];
+	int maxhealth;
+	weapon currentweapon;
+	string backstory, fname, lname;
+
 	const int heal = 30;
 	int potcount;
 	int potuse() {
@@ -117,15 +121,43 @@ public:
 			return 0;
 	};
 };
+
 int main() {
 
 	bool FinalFlag = false;
 
-	weapon PWeapon = {
-		2,
-		"Starting Sword" };
-
 	character Player;
+
+	srand(time(NULL));
+	int player_background_rand = rand() % 3 + 1;
+
+	switch (player_background_rand) {
+
+	case 1:
+		Player.currentweapon = {
+
+		};
+
+		Player.backstory = "";
+		break;
+
+	case 2:
+		Player.currentweapon = {
+
+		};
+
+		Player.backstory = "";
+		break;
+
+	case 3:
+		Player.currentweapon = {
+
+		};
+
+		Player.backstory = "";
+		break;
+
+	}
 
 	weapon T1Drop, T2Drop, T3Drop, T4Drop;
 
@@ -140,100 +172,126 @@ int main() {
 	switch (randnum) {
 
 	case 1:
-		T1M.name = "Slime";
+		T1M.name = "Highway Grunt";
 		T1M.health = 5;
 		break;
 
 	case 2:
-		T1M.name = "Boar";
-		T1M.health = 7;
+		T1M.name = "Highwy Runner";
+		T1M.health = 4;
 		break;
 
 	case 3:
-		T1M.name = "Bush";
-		T1M.health = 3;
+		T1M.name = "Highway Wheeler";
+		T1M.health = 5;
 		break;
 	}
 
-//Tier 1 Loot:
+	//Tier 1 Loot:
 
 	srand(time(NULL));
-	int t1rd = rand() % 6 + 1;
+	int t1rd = rand() % 8 + 1;
 
 	switch (t1rd) {
 
 	case 1:
 		T1Drop = {
-      6,
-      "Sword",
-      "Wooden Sword"
-    };
+			6,
+			"Tier One",
+			"Pistol",
+			"Factory New Desert Eagle"
+		};
 		break;
 
 	case 2:
 		T1Drop = {
-      4,
-      "Sword",
-      "Broken Wooden Sword"
-    };
+			4,
+			"Tier One",
+			"Pistol",
+			"Rusted Desert Eagle"
+		};
 		break;
 
 	case 3:
 		T1Drop = {
-      4,
-      "Sword",
-      "Broken Wooden Sword"
-    };
+			4,
+			"Tier One",
+			"Pistol",
+			"Rusted Desert Eagle"
+		};
 		break;
 
-  case 4:
-  T1Drop = {
-    4,
-    "Sword",
-    "Broken Wooden Sword"
-  };
+	case 4:
+		T1Drop = {
+			3,
+			"Tier One",
+			"Pistol",
+			"Very Rusted Desert Eagle"
+		};
+		break;
 
-  case 5:
-  T1Drop = {
-    6,
-    "Sword",
-    "Wooden Sword"
-  };
+	case 5:
+		T1Drop = {
+			6,
+			"Tier One",
+			"Pistol",
+			"Factory New Desert Eagle"
+		};
+		break;
 
-  case 6:
-  T1Drop = {
-    5,
-    "Bow",
-    "Wooden Bow"
-  };
+	case 6:
+		T1Drop = {
+			 5,
+			 "Tier One",
+			 "Pistol",
+			 "Factory New .44 Pistol"
+		};
+		break;
 
+	case 7:
+		T1Drop = {
+			4,
+			"Tier One",
+			"Pistol",
+			"Rusted .44 Pistol"
+		};
+		break;
+
+	case 8:
+		T1Drop = {
+			3,
+			"Tier One",
+			"Pistol",
+			"Very Rusted .44 Pistol" 
+		};
+		break;
 	}
 
-//Tier 2 Loot:
+	//Tier 2 Loot:
+
+		srand(time(NULL));
+		int t2rd = rand() % 8 + 1;
+
+		switch (t2rd) {
+
+		case 1:
+			T2Drop = {};
+			break;
+
+		case 2:
+			T2Drop = {};
+			break;
+
+		case 3:
+			T2Drop = {};
+			break;
+
+		}
+
+	//Tier 3 Loot:
 
 	srand(time(NULL));
-	int t2rd = rand() % 3 + 1;
-
-	switch (t2rd) {
-
-	case 1:
-		T2Drop = {};
-		break;
-
-	case 2:
-		T2Drop = {};
-		break;
-
-	case 3:
-		T2Drop = {};
-		break;
-
-	}
-
-//Tier 3 Loot:
-
-	srand(time(NULL));
-	int t3rd = rand() % 3 + 1;
+	int t3rd = rand() % 8 + 1;
 
 	switch (t3rd) {
 
@@ -248,72 +306,81 @@ int main() {
 	case 3:
 		T3Drop = {};
 		break;
-		
+
 	}
 
-//Tier 4 Loot:
+	//Tier 4 Loot:
 
 	srand(time(NULL));
-	int t4rd = rand() % 3 + 1;
-	
+	int t4rd = rand() % 8 + 1;
+
 	switch (t4rd) {
 
 	case 1:
 		T4Drop = {};
 		break;
-									   
-	case 2:		
+
+	case 2:
 		T4Drop = {};
 		break;
-									   
-	case 3:			
+
+	case 3:
 		T4Drop = {};
-		break;						   
-									   
+		break;
+
 	}
 
-//Menu:
+	//Menu:
 
-	cout << endl << "Welcome To Monster Fight! Choose a difficulty: " << endl << endl
+Menu:
+
+	cout << endl << endl << "Welcome To The Highway! Choose a difficulty: " << endl << endl
 		<< "1 - Easy" << endl
 		<< "2 - Medium" << endl
 		<< "3 - Hard" << endl
-		<< "4 - Exit" << endl << endl;
+		<< "4 - Exit" << endl
+		<<"5 - Test" << endl << endl;
 
 	int diff;
 	cin >> diff;
 	switch (diff) {
 
-//Different Difficulties & The Game:
+		//Different Difficulties & The Game:
 
 	case 1:
-		Player.health = 100;
-		cout << Player.health << endl << endl;
+	{Player.health = 100; Player.maxhealth = 100; }
 
-		cout << endl << T1Drop.name << endl << T1Drop.type << endl << T1Drop.damage; 
+	cout << "Current Health: " << Player.health << " Max Health: " << Player.maxhealth << endl << endl;
 
-    main();
+	cout << endl << T1Drop.name << endl << T1Drop.tier << endl << T1Drop.type << endl << T1Drop.damage;
 
-		break;
+	main();
+
+	break;
 
 	case 2:
-		Player.health = 80;
-		cout << Player.health;
+		{Player.health = 80; Player.maxhealth = 80;}
+		cout << endl << endl << Player.health << "Max Health : " << Player.maxhealth << endl << endl;
+		main();
 		break;
+
 	case 3:
-		Player.health = 50;
+	{Player.health = 50; int maxhealth = 50;}
 		cout << Player.health;
 		break;
+
 	case 4:
 		cout << "-----TERMINATED-----";
 		return 1;
+
+	case 5:
+		goto Menu;
+
 	default:
 		cout << "You entered an invalid option! Try again" << endl << endl;
 		main();
 	}
-	//cout << "Current health: " << Player.health << endl << endl;
-	//cout << "Using health potion! Gained " << Player.potuse() << endl << endl;
-	//Player.health += Player.potuse();
+
 }
 
 //Game Function Definitions
