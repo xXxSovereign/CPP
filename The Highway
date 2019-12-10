@@ -1,4 +1,6 @@
-//Michael Adolph, Dungeon Delve -- 22:33:18 -- 12/8/19
+//Michael Adolph, Dungeon Delve -- 22:00:00 -- 12/9/19
+
+//Version -- 0.4.2
 
 #include <iostream>
 #include <stdlib.h>
