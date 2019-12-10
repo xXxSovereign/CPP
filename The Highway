@@ -32,6 +32,7 @@ public:
 	int health;
 	bool T1Flag = false;
 	string name;
+	string enter;
 
 
 	int T1DeathCheck() {
@@ -47,8 +48,9 @@ public:
 
 class Tier2 {
 public:
-	int health ;
+	int health;
 	bool T2Flag = false;
+	string enter;
 
 	int T2Attack() {
 		srand(time(NULL));
@@ -65,6 +67,8 @@ class Tier3 {
 public:
 	int health;
 	bool T3Flag = false;
+	string enter;
+
 	int T3Attack() {
 		srand(time(NULL));
 		return rand() % 12 + 1;
@@ -78,6 +82,8 @@ class Tier4 {
 public:
 	int health;
 	bool T4Flag = false;
+	string enter;
+
 	int T4Attack() {
 		srand(time(NULL));
 		return rand() % 16 + 1;
@@ -92,6 +98,8 @@ class TierBoss {
 public:
 	int health;
 	bool TBFlag = false;
+	string enter;
+
 	int TBAttack() {
 		srand(time(NULL));
 		return rand() % 20 + 1;
@@ -123,8 +131,6 @@ public:
 };
 
 int main() {
-
-	bool FinalFlag = false;
 
 	character Player;
 
@@ -161,29 +167,135 @@ int main() {
 
 	weapon T1Drop, T2Drop, T3Drop, T4Drop;
 
-	Tier1 T1M, T2M, T3M, T4M, TBM;
+	Tier1 T1E, T2E, T3E, T4E, TBE;
 
+	//T1E
 
 	srand(time(NULL));
 	int randnum = rand() % 3 + 1;
 
+	switch (randnum) {
 
+	case 1:
+		T1E.name = "Highway Grunt";
+		T1E.health = 5;
+		T1E.enter = "";
+		break;
+
+	case 2:
+		T1E.name = "Highwy Runner";
+		T1E.health = 6;
+		T1E.enter = "";
+		break;
+
+	case 3:
+		T1E.name = "Highway Wheeler";
+		T1E.health = 5;
+		T1E.enter = "";
+		break;
+	}
+
+	//T2E
+
+	srand(time(NULL));
+	randnum = rand() % 3 + 1;
 
 	switch (randnum) {
 
 	case 1:
-		T1M.name = "Highway Grunt";
-		T1M.health = 5;
+		T2E.name = "Highway Bandit";
+		T2E.health = 12;
+		T2E.enter = "";
 		break;
 
 	case 2:
-		T1M.name = "Highwy Runner";
-		T1M.health = 4;
+		T2E.name = "Highwy Raider";
+		T2E.health = 10;
+		T2E.enter = "";
 		break;
 
 	case 3:
-		T1M.name = "Highway Wheeler";
-		T1M.health = 5;
+		T2E.name = "Highway Wheeler";
+		T2E.health = 15;
+		T2E.enter = "";
+		break;
+	}
+
+	//T3E
+
+	srand(time(NULL));
+	randnum = rand() % 3 + 1;
+
+	switch (randnum) {
+
+	case 1:
+		T3E.name = "Highway Grunt";
+		T3E.health = 20;
+		T3E.enter = "";
+		break;
+
+	case 2:
+		T3E.name = "Highwy Runner";
+		T3E.health = 25;
+		T3E.enter = "";
+		break;
+
+	case 3:
+		T3E.name = "Highway Wheeler";
+		T3E.health = 18;
+		T3E.enter = "";
+		break;
+	}
+
+	//T4E
+
+	srand(time(NULL));
+	randnum = rand() % 3 + 1;
+
+	switch (randnum) {
+
+	case 1:
+		T4E.name = "Highway Grunt";
+		T4E.health = 35;
+		T4E.enter = "";
+		break;
+
+	case 2:
+		T4E.name = "Highwy Runner";
+		T4E.health = 36;
+		T4E.enter = "";
+		break;
+
+	case 3:
+		T4E.name = "Highway Wheeler";
+		T4E.health = 30;
+		T4E.enter = "";
+		break;
+	}
+
+	//TBE
+
+	srand(time(NULL));
+	randnum = rand() % 3 + 1;
+
+	switch (randnum) {
+
+	case 1:
+		TBE.name = "Highway Grunt";
+		TBE.health = 50;
+		TBE.enter = "";
+		break;
+
+	case 2:
+		TBE.name = "Highwy Runner";
+		TBE.health = 45;
+		TBE.enter = "";
+		break;
+
+	case 3:
+		TBE.name = "Highway Wheeler";
+		TBE.health = 55;
+		TBE.enter = "";
 		break;
 	}
 
@@ -196,97 +308,97 @@ int main() {
 
 	case 1:
 		T1Drop = {
-			6,
-			"Tier One",
-			"Pistol",
-			"Factory New Desert Eagle"
+		  6,
+		  "Tier One",
+		  "Pistol",
+		  "Factory New Desert Eagle"
 		};
 		break;
 
 	case 2:
 		T1Drop = {
-			4,
-			"Tier One",
-			"Pistol",
-			"Rusted Desert Eagle"
+		  4,
+		  "Tier One",
+		  "Pistol",
+		  "Rusted Desert Eagle"
 		};
 		break;
 
 	case 3:
 		T1Drop = {
-			4,
-			"Tier One",
-			"Pistol",
-			"Rusted Desert Eagle"
+		  4,
+		  "Tier One",
+		  "Pistol",
+		  "Rusted Desert Eagle"
 		};
 		break;
 
 	case 4:
 		T1Drop = {
-			3,
-			"Tier One",
-			"Pistol",
-			"Very Rusted Desert Eagle"
+		  3,
+		  "Tier One",
+		  "Pistol",
+		  "Very Rusted Desert Eagle"
 		};
 		break;
 
 	case 5:
 		T1Drop = {
-			6,
-			"Tier One",
-			"Pistol",
-			"Factory New Desert Eagle"
+		  6,
+		  "Tier One",
+		  "Pistol",
+		  "Factory New Desert Eagle"
 		};
 		break;
 
 	case 6:
 		T1Drop = {
-			 5,
-			 "Tier One",
-			 "Pistol",
-			 "Factory New .44 Pistol"
+		   5,
+		   "Tier One",
+		   "Pistol",
+		   "Factory New .44 Pistol"
 		};
 		break;
 
 	case 7:
 		T1Drop = {
-			4,
-			"Tier One",
-			"Pistol",
-			"Rusted .44 Pistol"
+		  4,
+		  "Tier One",
+		  "Pistol",
+		  "Rusted .44 Pistol"
 		};
 		break;
 
 	case 8:
 		T1Drop = {
-			3,
-			"Tier One",
-			"Pistol",
-			"Very Rusted .44 Pistol" 
+		  3,
+		  "Tier One",
+		  "Pistol",
+		  "Very Rusted .44 Pistol"
 		};
 		break;
 	}
 
 	//Tier 2 Loot:
 
-		srand(time(NULL));
-		int t2rd = rand() % 8 + 1;
+	srand(time(NULL));
+	int t2rd = rand() % 8 + 1;
 
-		switch (t2rd) {
+	switch (t2rd) {
 
-		case 1:
-			T2Drop = {};
-			break;
+	case 1:
+		T2Drop = {};
+		break;
 
-		case 2:
-			T2Drop = {};
-			break;
+	case 2:
+		T2Drop = {};
+		break;
 
-		case 3:
-			T2Drop = {};
-			break;
+	case 3:
+		T2Drop = {};
+		break;
 
-		}
+	}
 
 	//Tier 3 Loot:
 
@@ -338,8 +450,7 @@ Menu:
 		<< "1 - Easy" << endl
 		<< "2 - Medium" << endl
 		<< "3 - Hard" << endl
-		<< "4 - Exit" << endl
-		<<"5 - Test" << endl << endl;
+		<< "4 - Exit" << endl << endl;
 
 	int diff;
 	cin >> diff;
@@ -350,31 +461,28 @@ Menu:
 	case 1:
 	{Player.health = 100; Player.maxhealth = 100; }
 
-	cout << "Current Health: " << Player.health << " Max Health: " << Player.maxhealth << endl << endl;
-
-	cout << endl << T1Drop.name << endl << T1Drop.tier << endl << T1Drop.type << endl << T1Drop.damage;
-
-	main();
+	charname(Player);
 
 	break;
 
 	case 2:
-		{Player.health = 80; Player.maxhealth = 80;}
-		cout << endl << endl << Player.health << "Max Health : " << Player.maxhealth << endl << endl;
-		main();
-		break;
+	{Player.health = 80; Player.maxhealth = 80; }
+
+	break;
 
 	case 3:
-	{Player.health = 50; int maxhealth = 50;}
-		cout << Player.health;
-		break;
+	{Player.health = 50; Player.maxhealth = 50; }
+
+	break;
 
 	case 4:
 		cout << "-----TERMINATED-----";
 		return 1;
 
-	case 5:
-		goto Menu;
+	case 89032:
+	{Player.health = 999999999; Player.maxhealth = 999999999; }
+	cout << endl << Player.health << " : " << Player.maxhealth;
+	goto Menu;
 
 	default:
 		cout << "You entered an invalid option! Try again" << endl << endl;
