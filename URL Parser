@@ -8,7 +8,7 @@ int main() {
  
  string s = "i went on news. today, it wasn't as good as https://repl.it/languages/python3";
  
- regex r("(https?://)?[^ ]+[.][^ ]+(/[^ ])*");
+ regex r("https?://[^ ]+[.][^ ]+(/[^ ])*");
  
  smatch m;
  
