@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Firewall{
+  public:
+  string Passcode;
+  bool Breach(string code){
+    if (code == Passcode){
+      cout << endl << "Firewall Breached; Access Granted" << endl;
+      return true;
+    } else{
+      cout << endl << "Failed; Restarting" << endl << endl << endl;
+      return false;
+    }
+  }
+
+};
+
+int main() {
+  Firewall WeakFirewall, MedFirewall, StrongFirewall;
+  WeakFirewall.Passcode = "1234";
+  MedFirewall.Passcode = "1a3v6d";
+  StrongFirewall.Passcode = "2C!sdm#9a@#";
+
+  cout << "Which firewall would you like to attempt to breach? 1 - Weak, 2 - Medium, 3 - Strong" << endl;
+
+  int choice;
+  string UGuess;
+  bool retval;
+  cin >> choice;
+  cout << endl;
+  switch (choice){
+    case 1:
+      cout << "WeakFirewall -- Input the code to the firewall here: ";
+      cin >> UGuess;
+      retval = WeakFirewall.Breach(UGuess);
+      if (!retval){
+        main();
+      }
+      break;
+
+    case 2:
+      cout << "MediumFirewall -- Input the code to the firewall here: ";
+      cin >> UGuess;
+      retval = MedFirewall.Breach(UGuess);
+      if (!retval){
+        main();
+      }
+      break;
+
+    case 3:
+      cout << "StrongFirewall -- Input the code to the firewall here: ";
+      cin >> UGuess;
+      retval = StrongFirewall.Breach(UGuess);
+      if (!retval){
+        main();
+      }
+      break;
+
+    default:
+      cout << "Invalid input, restarting" << endl;
+      main();
+
+  }
+  cout << endl << "Retrieving Top Secret Files";
+  cout << endl << "...";
+  cout << endl << "File Retrieval Failed; Terminating now" << endl;
+  cout << "TERMINATED" << endl << endl;
+  return 1;
+
+}
