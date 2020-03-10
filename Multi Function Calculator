@@ -49,14 +49,12 @@ case 3:
       cout << endl << multiply() << endl << endl;
       break;
 case 4:
-  
       cout << endl << divide() << endl << endl;
       break;
 case 5:
       cout << endl << power() << endl << endl;
       break;
 case 6:
-  
       cout << endl << mod() << endl << endl;
       break;
 case 7:
