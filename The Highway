@@ -1,4 +1,4 @@
-//Michael Adolph, Dungeon Delve -- 22:00:00 -- 12/9/19
+//Michael Adolph, The Highway -- 22:00:00 -- 12/9/19
 
 //Version -- 0.4.2
 
@@ -148,7 +148,7 @@ int main() {
 
 		Player.backstory = "";
 		break;
-
+		   
 	case 2:
 		Player.currentweapon = {
 
@@ -165,7 +165,6 @@ int main() {
 		Player.backstory = "";
 		break;
 
-	}
 
 	weapon T1Drop, T2Drop, T3Drop, T4Drop;
 
@@ -463,7 +462,6 @@ Menu:
 	case 1:
 	{Player.health = 100; Player.maxhealth = 100; }
 
-	charname(Player);
 
 	break;
 
